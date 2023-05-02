@@ -92,7 +92,6 @@ export default class CalendarDaysCustom extends React.Component {
 
   generateDates = (props) => {
     const date = moment(props.firstDate);
-    const disabledDates = props.disabledDates ? props.disabledDates : [];
 
     const first = props.firstDate
       ? moment(props.firstDate)
@@ -105,14 +104,11 @@ export default class CalendarDaysCustom extends React.Component {
 
     const dates = [];
     for (let i = 0; i < numberOfDays; i += 1) {
-      const isDisabled = !!disabledDates.includes(date.format("YYYY-MM-DD"));
-
       dates.push({
         date: date.format("YYYY-MM-DD"),
         day: date.format("D"),
         day_of_week: date.format("ddd"),
         month: date.format("MMMM"),
-        disabled: isDisabled,
       });
       date.add(1, "days");
     }
@@ -126,11 +122,9 @@ export default class CalendarDaysCustom extends React.Component {
       firstDate,
       lastDate,
       numberOfDays,
-      disabledText,
       daysInView,
-      disabledDates,
       width,
-      paginate,
+      // paginate,
       showArrows,
       leftArrow,
       rightArrow,
@@ -147,19 +141,18 @@ export default class CalendarDaysCustom extends React.Component {
       firstDate,
       lastDate,
       numberOfDays: numberOfDays || 30,
-      disabledText: disabledText || null,
-      disabledDates: disabledDates || null,
     };
 
     const availableDates = this.generateDates(daysProps);
 
     if (availableDates) {
       days = availableDates.map((val, key) => {
+        console.log(key, "<<<== this is key");
         const isClosedStyle = val.open ? null : style.closed;
 
-        const isClosedMonthStyle = val.disabled
-          ? style.monthContainerClosed
-          : null;
+        // const isClosedMonthStyle = val.disabled
+        //   ? style.monthContainerClosed
+        //   : null;
 
         const selectedStyle =
           selectedDayIndex === key ? style.singleContainerSelected : null;
@@ -167,7 +160,7 @@ export default class CalendarDaysCustom extends React.Component {
         return (
           <TouchableOpacity
             key={key}
-            disabled={val.disabled}
+            // disabled={val.disabled}
             onPress={() =>
               this.dateSelect({ key, date: availableDates[key].date })
             }
@@ -184,9 +177,7 @@ export default class CalendarDaysCustom extends React.Component {
                 </View> */}
                 <View style={style.dayContainer}>
                   <Text style={[style.dayText, isClosedStyle]}>
-                    {val.disabled && disabledText
-                      ? daysProps.disabledText
-                      : val.day_of_week}
+                    {val.day_of_week}
                   </Text>
                 </View>
                 {selectedStyle ? (
@@ -224,39 +215,39 @@ export default class CalendarDaysCustom extends React.Component {
           flexDirection: "row",
         }}
       >
-        {showArrows ? (
+        {/* {showArrows ? (
           <TouchableOpacity
             style={style.arrow}
             onPress={() => this.scroll("left")}
           >
             {leftArrow}
           </TouchableOpacity>
-        ) : null}
+        ) : null} */}
         <ScrollView
           ref={(scrollView) => {
             this.scrollView = scrollView;
           }}
           scrollEnabled={!showArrows}
           horizontal
-          snapToInterval={
-            paginate && scrollWidth % constants.DAY_SIZE === 0
-              ? scrollWidth
-              : constants.DAY_SIZE
-          }
+          // snapToInterval={
+          //   paginate && scrollWidth % constants.DAY_SIZE === 0
+          //     ? scrollWidth
+          //     : constants.DAY_SIZE
+          // }
           decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
         >
           <View style={{ width: (scrollWidth % constants.DAY_SIZE) / 2 }} />
           {days || null}
         </ScrollView>
-        {showArrows ? (
+        {/* {showArrows ? (
           <TouchableOpacity
             style={style.arrow}
             onPress={() => this.scroll("right")}
           >
             {rightArrow}
           </TouchableOpacity>
-        ) : null}
+        ) : null} */}
       </View>
     );
   }
