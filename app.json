@@ -1,0 +1,39 @@
+{
+  "expo": {
+    "name": "Здороvый Я",
+    "slug": "klinik-zdorovy",
+    "version": "0.1.2",
+    "orientation": "portrait",
+    "icon": "./assets/logo.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "buildNumber":"1.0.0",
+      "supportsTablet": true
+    },
+    "android": {
+      "versionCode": 2,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.zdoroviyja.app"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "0ba67855-bf70-4d42-a427-21eb6f4fc856"
+      }
+    },
+    "owner": "fao30"
+  }
+}
