@@ -18,13 +18,13 @@ import {
   Keyboard,
   TextInput,
 } from "react-native";
-import { profileSettings } from "../Styles/ProfileSettings";
+import { profileEdit } from "../Styles/ProfileEdit";
 
 const Input = ({ label }) => {
   return (
     <>
-      <Text style={[profileSettings.labelInput]}>{label}</Text>
-      <TextInput style={profileSettings.textInput} />
+      <Text style={[profileEdit.labelInput]}>{label}</Text>
+      <TextInput style={profileEdit.textInput} />
     </>
   );
 };

@@ -16,6 +16,7 @@ import {
   Image,
   TouchableWithoutFeedback,
   Linking,
+  Pressable,
 } from "react-native";
 import { SvgXml } from "react-native-svg";
 import { profile } from "../Styles/Profile";
@@ -67,7 +68,9 @@ export const ProfileScreen = ({ navigation, route }) => {
             </View>
 
             <Text style={profile.phone}>+7 999 888 77 66</Text>
-            <Text style={profile.link}>Редактировать</Text>
+            <Pressable onPress={() => navigation.navigate("Profile Edit")}>
+              <Text style={profile.link}>Редактировать</Text>
+            </Pressable>
           </View>
         </TouchableWithoutFeedback>
       </View>
@@ -90,12 +93,7 @@ export const ProfileScreen = ({ navigation, route }) => {
             <Text style={profile.settingText}>Документы</Text>
           </View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback
-          style={profile.settingLink}
-          onPress={() => {
-            navigation.navigate("Profile Settings");
-          }}
-        >
+        <TouchableWithoutFeedback style={profile.settingLink}>
           <View style={profile.settingLine}>
             <SvgXml xml={settingsIcon} style={profile.settingIcons} />
             <Text style={profile.settingText}>Настройки</Text>

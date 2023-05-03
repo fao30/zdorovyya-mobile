@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View, Button } from "react-native";
 
-export const profileSettings = StyleSheet.create({
+export const profileEdit = StyleSheet.create({
   container: {
     height: "100%",
     width: "100%",

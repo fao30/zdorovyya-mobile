@@ -20,7 +20,7 @@ import {
   Pressable,
 } from "react-native";
 import { RadioButton } from "react-native-paper";
-import { profileSettings } from "../Styles/ProfileSettings";
+import { profileEdit } from "../Styles/ProfileEdit";
 import { expandIcon, hideIcon } from "../Icons/HideExpand";
 import { closeIcon, tickIcon } from "../Icons/Profile";
 import { SvgXml } from "react-native-svg";
@@ -29,34 +29,40 @@ import { SvgXml } from "react-native-svg";
 import Input from "../Components/Input";
 import { Navigation } from "../Components/Navigation";
 
-export const ProfileSettingsScreen = ({ navigation, route }) => {
+export const ProfileEditScreen = ({ navigation, route }) => {
   const params = route.params;
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <SafeAreaView style={profileSettings.container}>
-        <View style={profileSettings.header}>
+      <SafeAreaView style={profileEdit.container}>
+        <View style={profileEdit.header}>
           <View style={{ flexDirection: "row", gap: 5 }}>
-            <SvgXml xml={closeIcon} style={profileSettings.title} />
-            <Text style={profileSettings.title}>Профиль</Text>
+            <Pressable
+              onPress={() => {
+                navigation.goBack();
+              }}
+            >
+              <SvgXml xml={closeIcon} style={profileEdit.title} />
+            </Pressable>
+            <Text style={profileEdit.title}>Профиль</Text>
           </View>
-          <View style={profileSettings.title}>
+          <View style={profileEdit.title}>
             <SvgXml xml={tickIcon} />
           </View>
         </View>
         <ScrollView>
-          <View style={profileSettings.inputContainer}>
+          <View style={profileEdit.inputContainer}>
             <Input label="Фамилия" />
             <Input label="Имя" />
             <Input label="Отчество" />
           </View>
-          <View style={profileSettings.radioButtonContainer}>
-            <Text style={[profileSettings.labelInput]}>Пол</Text>
-            <View style={profileSettings.radioButtonContainerInside}>
-              <View style={profileSettings.radioButton}>
+          <View style={profileEdit.radioButtonContainer}>
+            <Text style={[profileEdit.labelInput]}>Пол</Text>
+            <View style={profileEdit.radioButtonContainerInside}>
+              <View style={profileEdit.radioButton}>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <RadioButton status="checked" color="#3989FA" />
-                  <Text style={profileSettings.radioButtonTitle}>Женский</Text>
+                  <Text style={profileEdit.radioButtonTitle}>Женский</Text>
                 </View>
                 <View style={{ flexDirection: "row", alignItems: "center" }}>
                   <RadioButton status="checked" color="#3989FA" />
@@ -65,13 +71,13 @@ export const ProfileSettingsScreen = ({ navigation, route }) => {
               </View>
             </View>
           </View>
-          <View style={profileSettings.inputContainer}>
+          <View style={profileEdit.inputContainer}>
             <Input label="Дата рождения" />
             <Input label="Телефон" />
             <Input label="Email" />
           </View>
-          <View style={profileSettings.inputContainer}>
-            <Text style={profileSettings.dataPassport}>Паспортные данные</Text>
+          <View style={profileEdit.inputContainer}>
+            <Text style={profileEdit.dataPassport}>Паспортные данные</Text>
             <Input label="Серия" />
             <Input label="Номер" />
           </View>
