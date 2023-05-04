@@ -1,4 +1,3 @@
-import React, { useCallback } from "react";
 import {
   StyleSheet,
   Button,
@@ -29,6 +28,7 @@ import { SvgXml } from "react-native-svg";
 
 // components
 import Input from "../Components/Input";
+import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
 export const ProfileEditScreen = ({ navigation, route }) => {
@@ -69,14 +69,16 @@ export const ProfileEditScreen = ({ navigation, route }) => {
               <Text style={[profileEdit.labelInput]}>Пол</Text>
               <View style={profileEdit.radioButtonContainerInside}>
                 <View style={profileEdit.radioButton}>
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <RadioButton status="checked" color="#3989FA" />
-                    <Text style={profileEdit.radioButtonTitle}>Женский</Text>
-                  </View>
-                  <View style={{ flexDirection: "row", alignItems: "center" }}>
-                    <RadioButton status="checked" color="#3989FA" />
-                    <Text>Мужской</Text>
-                  </View>
+                  <RadioButtonComponent
+                    label="Женский"
+                    color="#3989FA"
+                    status="checked"
+                  />
+                  <RadioButtonComponent
+                    label="Мужской"
+                    color="#3989FA"
+                    status="checked"
+                  />
                 </View>
               </View>
             </View>
