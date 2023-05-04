@@ -6,19 +6,22 @@ import {
   ImageBackground,
   Pressable,
   ScrollView,
+  Image,
 } from "react-native";
 import { clinics } from "../../Styles/Clinics";
 import { SvgXml } from "react-native-svg";
 import { hideIcon, expandIcon } from "../../Icons/HideExpand";
-import { favButton } from "../../Icons/Specializations";
+import { favButton, favButtonClicked } from "../../Icons/Specializations";
 import { DateLists } from "./DateLists";
 import { TimeLists } from "./TimeLists";
 import { ReviewStarts } from "./ReviewStarts";
 import { SafeAreaView } from "react-native-safe-area-context";
+import style from "./style";
 
 function Clinics({ clinicsData, navigation }) {
   const Item = ({ id, time, date, doctor, clinic, doctorname, address }) => {
     const [isExpand, setIsexpand] = useState(false);
+    const [fav, setFav] = useState(false);
 
     return (
       <View>
@@ -38,27 +41,28 @@ function Clinics({ clinicsData, navigation }) {
         >
           <View style={clinics.clinicCard}>
             <View style={clinics.avatar}>
-              <ImageBackground
+              <Image
                 source={{
                   uri: "https://app.aaccent.su/health/resource/clinic.png",
                 }}
-                resizeMode="cover"
                 style={clinics.clinicsImage}
-              >
+              />
+              <Pressable onPress={() => setFav(!fav)} style={clinics.fav}>
                 <View>
-                  <SvgXml xml={favButton} />
+                  <SvgXml xml={fav ? favButtonClicked : favButton} />
                 </View>
-              </ImageBackground>
+              </Pressable>
             </View>
             <View style={clinics.clinicInfo}>
-              <View>
+              <View style={{ gap: 6 }}>
                 <Text style={clinics.name}>Man Clinic</Text>
                 <Text style={clinics.count}>В Казани: 3 клиники</Text>
+                <View style={clinics.review}>
+                  <ReviewStarts stars={3} />
+                  <Text style={clinics.countTestimonies}>(12 отзывов)</Text>
+                </View>
               </View>
-              <View style={clinics.review}>
-                <ReviewStarts stars={3}></ReviewStarts>
-                <Text style={clinics.countTestimonies}>(12 отзывов)</Text>
-              </View>
+
               <Text style={clinics.price}>От 1290Р</Text>
             </View>
           </View>
@@ -89,6 +93,7 @@ function Clinics({ clinicsData, navigation }) {
         </View>
         <View style={clinics.chooseAddress}>
           <TimeLists
+            navigation={navigation}
             timeLists={["12:20", "14:20", "20:30", "20:20", "12:20", "12:20"]}
           />
         </View>
