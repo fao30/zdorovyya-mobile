@@ -93,7 +93,10 @@ export const ProfileScreen = ({ navigation, route }) => {
             <Text style={profile.settingText}>Документы</Text>
           </View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback style={profile.settingLink}>
+        <TouchableWithoutFeedback
+          style={profile.settingLink}
+          onPress={() => navigation.navigate("Profile Settings")}
+        >
           <View style={profile.settingLine}>
             <SvgXml xml={settingsIcon} style={profile.settingIcons} />
             <Text style={profile.settingText}>Настройки</Text>

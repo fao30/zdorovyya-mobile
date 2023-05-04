@@ -21,17 +21,20 @@ import {
 } from "react-native";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { RadioButton } from "react-native-paper";
-import { profileEdit } from "../Styles/ProfileEdit";
 import { expandIcon, hideIcon } from "../Icons/HideExpand";
 import { closeIcon, tickIcon } from "../Icons/Profile";
 import { SvgXml } from "react-native-svg";
+
+// Styles
+import { universal } from "../Styles/Universal";
+import { profileEdit } from "../Styles/ProfileEdit";
 
 // components
 import Input from "../Components/Input";
 import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
-export const ProfileEditScreen = ({ navigation, route }) => {
+export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
 
   return (
@@ -46,7 +49,7 @@ export const ProfileEditScreen = ({ navigation, route }) => {
             >
               <SvgXml xml={closeIcon} style={profileEdit.title} />
             </Pressable>
-            <Text style={profileEdit.title}>Профиль</Text>
+            <Text style={universal.headerFont}>Профиль</Text>
           </View>
           <View style={profileEdit.title}>
             <Pressable onPress={Keyboard.dismiss}>

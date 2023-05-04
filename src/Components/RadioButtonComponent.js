@@ -1,24 +1,4 @@
-import {
-  StyleSheet,
-  Button,
-  TouchableOpacity,
-  Text,
-  ActivityIndicator,
-  View,
-  KeyboardAvoidingView,
-  Alert,
-  SafeAreaView,
-  ScrollView,
-  TouchableHighlight,
-  ImageBackground,
-  Image,
-  TouchableWithoutFeedback,
-  Linking,
-  Keyboard,
-  TextInput,
-  Pressable,
-  Platform,
-} from "react-native";
+import { Text, View } from "react-native";
 import { RadioButton } from "react-native-paper";
 import { profileEdit } from "../Styles/ProfileEdit";
 
