@@ -19,6 +19,7 @@ import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
 import { ProfileScreen } from "./src/Screens/ProfileScreen";
 import { ProfileScreenEdit } from "./src/Screens/ProfileScreenEdit";
 import { ProfileScreenSettings } from "./src/Screens/ProfileScreenSettings";
+import { ProfileScreenFamily } from "./src/Screens/ProfileScreenFamily";
 
 const Stack = createNativeStackNavigator();
 
@@ -62,6 +63,13 @@ const App = () => {
         <Stack.Screen
           name="Profile Settings"
           component={ProfileScreenSettings}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Family"
+          component={ProfileScreenFamily}
           options={{
             animationEnabled: false,
           }}

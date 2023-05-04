@@ -81,7 +81,10 @@ export const ProfileScreen = ({ navigation, route }) => {
             <Text style={profile.settingText}>История записей</Text>
           </View>
         </TouchableWithoutFeedback>
-        <TouchableWithoutFeedback style={profile.settingLink}>
+        <TouchableWithoutFeedback
+          style={profile.settingLink}
+          onPress={() => navigation.navigate("Profile Family")}
+        >
           <View style={profile.settingLine}>
             <SvgXml xml={familyIcon} style={profile.settingIcons} />
             <Text style={profile.settingText}>Моя семья</Text>

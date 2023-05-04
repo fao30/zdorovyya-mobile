@@ -94,3 +94,9 @@ export const exitProfile = `<svg width="24" height="24" viewBox="0 0 24 24" fill
 <path d="M15.0769 7.5V5.25C15.0769 4.65326 14.8743 4.08097 14.5137 3.65901C14.153 3.23705 13.6639 3 13.1538 3H3.92308C3.41305 3 2.9239 3.23705 2.56326 3.65901C2.20261 4.08097 2 4.65326 2 5.25V18.75C2 19.3467 2.20261 19.919 2.56326 20.341C2.9239 20.7629 3.41305 21 3.92308 21H13.1538C13.6639 21 14.153 20.7629 14.5137 20.341C14.8743 19.919 15.0769 19.3467 15.0769 18.75V16.5M18.1538 7.5L22 12M22 12L18.1538 16.5M22 12H8.875" stroke="#050220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `;
+
+export const addProfileIcon = `<svg width="24" height="24" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M13.6569 8H2.34326" stroke="#050220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M8.00013 2.34313V13.6569" stroke="#050220" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+`;
