@@ -18,7 +18,9 @@ import {
   Keyboard,
   TextInput,
   Pressable,
+  Platform,
 } from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { RadioButton } from "react-native-paper";
 import { profileEdit } from "../Styles/ProfileEdit";
 import { expandIcon, hideIcon } from "../Icons/HideExpand";
@@ -47,41 +49,49 @@ export const ProfileEditScreen = ({ navigation, route }) => {
             <Text style={profileEdit.title}>Профиль</Text>
           </View>
           <View style={profileEdit.title}>
-            <SvgXml xml={tickIcon} />
+            <Pressable onPress={Keyboard.dismiss}>
+              <SvgXml xml={tickIcon} />
+            </Pressable>
           </View>
         </View>
-        <ScrollView>
-          <View style={profileEdit.inputContainer}>
-            <Input label="Фамилия" />
-            <Input label="Имя" />
-            <Input label="Отчество" />
-          </View>
-          <View style={profileEdit.radioButtonContainer}>
-            <Text style={[profileEdit.labelInput]}>Пол</Text>
-            <View style={profileEdit.radioButtonContainerInside}>
-              <View style={profileEdit.radioButton}>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <RadioButton status="checked" color="#3989FA" />
-                  <Text style={profileEdit.radioButtonTitle}>Женский</Text>
-                </View>
-                <View style={{ flexDirection: "row", alignItems: "center" }}>
-                  <RadioButton status="checked" color="#3989FA" />
-                  <Text>Мужской</Text>
+        <KeyboardAwareScrollView
+          extraScrollHeight={100}
+          enableOnAndroid={true}
+          keyboardShouldPersistTaps="handled"
+        >
+          <ScrollView>
+            <View style={profileEdit.inputContainer}>
+              <Input label="Фамилия" />
+              <Input label="Имя" />
+              <Input label="Отчество" />
+            </View>
+            <View style={profileEdit.radioButtonContainer}>
+              <Text style={[profileEdit.labelInput]}>Пол</Text>
+              <View style={profileEdit.radioButtonContainerInside}>
+                <View style={profileEdit.radioButton}>
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <RadioButton status="checked" color="#3989FA" />
+                    <Text style={profileEdit.radioButtonTitle}>Женский</Text>
+                  </View>
+                  <View style={{ flexDirection: "row", alignItems: "center" }}>
+                    <RadioButton status="checked" color="#3989FA" />
+                    <Text>Мужской</Text>
+                  </View>
                 </View>
               </View>
             </View>
-          </View>
-          <View style={profileEdit.inputContainer}>
-            <Input label="Дата рождения" />
-            <Input label="Телефон" />
-            <Input label="Email" />
-          </View>
-          <View style={profileEdit.inputContainer}>
-            <Text style={profileEdit.dataPassport}>Паспортные данные</Text>
-            <Input label="Серия" />
-            <Input label="Номер" />
-          </View>
-        </ScrollView>
+            <View style={profileEdit.inputContainer}>
+              <Input label="Дата рождения" />
+              <Input label="Телефон" />
+              <Input label="Email" />
+            </View>
+            <View style={profileEdit.inputContainer}>
+              <Text style={profileEdit.dataPassport}>Паспортные данные</Text>
+              <Input label="Серия" />
+              <Input label="Номер" />
+            </View>
+          </ScrollView>
+        </KeyboardAwareScrollView>
         <Navigation navigation={navigation} params={params} active="profile" />
       </SafeAreaView>
     </TouchableWithoutFeedback>
