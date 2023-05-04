@@ -15,6 +15,7 @@ import { getHeaderTitle } from "@react-navigation/elements";
 import { ClinicsScreen } from "./src/Screens/ClinicsScreen";
 import { ClinicScreen } from "./src/Screens/ClinicScreen";
 import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
+import { ProfileEditScreen } from "./src/Screens/ProfileEditScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,13 +28,13 @@ const App = () => {
           animation: "none",
         }}
       >
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Auth"
           component={AuthScreen}
           options={{
             animationEnabled: false,
           }}
-        />
+        /> */}
         <Stack.Screen
           name="Main"
           component={HomeScreen}
@@ -45,6 +46,13 @@ const App = () => {
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Edit"
+          component={ProfileEditScreen}
           options={{
             animationEnabled: false,
           }}
