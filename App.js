@@ -131,7 +131,7 @@ const App = () => {
           options={{
             animationEnabled: true,
             headerShown: true,
-            title: "Карточка врача",
+            title: "Оформление",
           }}
         />
       </Stack.Navigator>

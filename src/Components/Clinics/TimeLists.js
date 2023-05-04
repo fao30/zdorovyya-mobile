@@ -15,9 +15,7 @@ export const TimeLists = ({ timeLists, navigation }) => {
     <View style={clinics.dateShow}>
       {timeLists.map((e) => {
         return (
-          <TouchableOpacity
-          // onPress={() => navigation.navigate("")}
-          >
+          <TouchableOpacity onPress={() => navigation.navigate("Appointment")}>
             <View style={clinics.dateShowBox}>
               <Text style={clinics.dateShowBoxTitle}>12:20</Text>
             </View>
