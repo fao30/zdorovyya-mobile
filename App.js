@@ -16,6 +16,7 @@ import { ClinicsScreen } from "./src/Screens/ClinicsScreen";
 import { ClinicScreen } from "./src/Screens/ClinicScreen";
 import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
 import { ProfileEditScreen } from "./src/Screens/ProfileEditScreen";
+import AppointmentScreen from "./src/Screens/AppointmentScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -122,6 +123,15 @@ const App = () => {
             animationEnabled: true,
             headerShown: true,
             title: "Карточка врача",
+          }}
+        />
+        <Stack.Screen
+          name="Appointment"
+          component={AppointmentScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Оформление",
           }}
         />
       </Stack.Navigator>

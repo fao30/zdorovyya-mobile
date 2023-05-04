@@ -87,6 +87,7 @@ export const clinics = StyleSheet.create({
     paddingTop: 10,
     paddingRight: 24,
     width: "100%",
+    gap: 8,
   },
   clinicContact: {
     flexDirection: "row",
@@ -139,9 +140,7 @@ export const clinics = StyleSheet.create({
   },
   avatar: {
     width: "50%",
-    borderRadius: 10,
     backgroundColor: "#fff",
-    marginRight: 8,
   },
   avatarDetail: {
     width: "100%",
@@ -149,10 +148,15 @@ export const clinics = StyleSheet.create({
     borderRadius: 30,
     backgroundColor: "#fff",
   },
+  fav: {
+    position: "absolute",
+    top: 12,
+    right: 12,
+  },
   clinicsImageDetail: {
     width: "100%",
     height: 150,
-    borderRadius: 30,
+    borderRadius: 10,
     top: 0,
   },
   reviewPad: {
@@ -169,29 +173,29 @@ export const clinics = StyleSheet.create({
   clinicsImage: {
     width: "100%",
     height: 105,
-    borderRadius: 30,
+    borderRadius: 15,
   },
   clinicInfo: {
-    alignItems: "stretch",
     justifyContent: "space-between",
+    width: "50%",
   },
   name: {
     fontSize: 16,
     color: "#050220",
-    marginBottom: 8,
+
     fontWeight: "bold",
   },
   nameDetail: {
     fontSize: 16,
     color: "#050220",
-    marginBottom: 8,
+
     fontWeight: "bold",
     marginVertical: 10,
   },
   clinicName: {
     fontSize: 16,
     color: "#050220",
-    marginBottom: 8,
+
     fontWeight: "bold",
   },
   count: {
