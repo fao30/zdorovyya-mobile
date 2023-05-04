@@ -38,7 +38,7 @@ export const ProfileEditScreen = ({ navigation, route }) => {
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <SafeAreaView style={profileEdit.container}>
         <View style={profileEdit.header}>
-          <View style={{ flexDirection: "row", gap: 5 }}>
+          <View style={{ flexDirection: "row", gap: 5, alignItems: "center" }}>
             <Pressable
               onPress={() => {
                 navigation.goBack();

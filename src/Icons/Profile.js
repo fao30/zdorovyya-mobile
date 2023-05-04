@@ -58,14 +58,14 @@ export const favoriteIcon = `
 
 export const closeIcon = `
 
-<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M12 12L4 4" stroke="#050220" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 <path d="M12 4L4 12" stroke="#050220" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 
 `;
 
-export const tickIcon = `<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+export const tickIcon = `<svg width="20" height="20" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
 <path d="M13.3332 4L5.99984 11.3333L2.6665 8" stroke="#25282B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 </svg>
 `;
