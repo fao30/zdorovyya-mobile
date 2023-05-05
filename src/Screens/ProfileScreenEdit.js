@@ -43,9 +43,9 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
 
   const [data, setData] = useState({});
 
-  useEffect(() => {
-    console.log("DATA>>", data);
-  }, [data]);
+  const handleSubmit = () => {
+    console.log("SUBMMITED>>", data);
+  };
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -65,7 +65,7 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
             </Text>
           </View>
           <View style={profileEdit.title}>
-            <Pressable onPress={Keyboard.dismiss}>
+            <Pressable onPress={handleSubmit}>
               <SvgXml xml={tickIcon} />
             </Pressable>
           </View>
@@ -120,9 +120,8 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
               <Input
                 label="Дата рождения"
                 value={data?.dateOfBirth}
-                onChangeText={(e) => {
-                  setData({ ...data, dateOfBirth: e });
-                }}
+                setData={setData}
+                data={data}
               />
               <Input
                 label="Телефон"

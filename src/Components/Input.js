@@ -27,7 +27,10 @@ import { profileEdit } from "../Styles/ProfileEdit";
 // Components
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 
-const Input = ({ label, value, onChangeText, keyboardType, type }) => {
+// utils
+import { dateFormatNumber } from "../../utils";
+
+const Input = ({ label, value, onChangeText, keyboardType, setData, data }) => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [datePickerVisible, setDatePickerVisible] = useState(false);
 
@@ -39,36 +42,28 @@ const Input = ({ label, value, onChangeText, keyboardType, type }) => {
     setDatePickerVisible(false);
   };
 
-  const handleConfirm = (date) => {
-    setSelectedDate(date);
-    hideDatePicker();
-  };
-
-  useEffect(() => {
-    console.log("DATE >", selectedDate);
-  }, [selectedDate]);
-
   return (
     <>
       <Text style={[profileEdit.labelInput]}>{label}</Text>
       {label.includes("Дата рождения") ? (
         <>
-          <Text
+          <TextInput
             style={profileEdit.textInput}
-            onPress={() => setDatePickerVisible(true)}
-          >
-            {selectedDate
-              ? selectedDate
-                  .toLocaleDateString()
-                  .replace("/", ".")
-                  .replace("/", ".")
-              : "No date selected"}
-          </Text>
+            onPressIn={showDatePicker}
+            editable={false}
+            placeholder="No date selected"
+            value={selectedDate
+              .toLocaleDateString()
+              .replace("/", ".")
+              .replace("/", ".")}
+          />
           <DateTimePickerModal
-            date={selectedDate}
             isVisible={datePickerVisible}
             mode="date"
-            onConfirm={handleConfirm}
+            onConfirm={(e) => {
+              setData({ ...data, dateOfBirth: dateFormatNumber(e) });
+              hideDatePicker();
+            }}
             onCancel={hideDatePicker}
             display="inline"
           />
