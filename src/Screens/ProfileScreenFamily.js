@@ -17,6 +17,7 @@ import {
   Linking,
   Pressable,
 } from "react-native";
+import React, { useEffect, useState } from "react";
 
 // Styles
 import { universal } from "../Styles/Universal";

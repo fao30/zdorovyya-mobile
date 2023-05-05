@@ -54,13 +54,6 @@ const App = () => {
           }}
         />
         <Stack.Screen
-          name="Profile Edit"
-          component={ProfileScreenEdit}
-          options={{
-            animationEnabled: false,
-          }}
-        />
-        <Stack.Screen
           name="Profile Settings"
           component={ProfileScreenSettings}
           options={{
@@ -70,6 +63,13 @@ const App = () => {
         <Stack.Screen
           name="Profile Family"
           component={ProfileScreenFamily}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Edit"
+          component={ProfileScreenEdit}
           options={{
             animationEnabled: false,
           }}

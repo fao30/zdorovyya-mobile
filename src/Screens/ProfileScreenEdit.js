@@ -35,13 +35,12 @@ import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
 import InputFields from "../Components/Profile/InputFields";
-import { useRoute } from "@react-navigation/native";
 
 export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
 
   const ScreenName = route.name;
-  console.log(">>>>", ScreenName);
+  console.log("Screen Name =>", ScreenName);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
