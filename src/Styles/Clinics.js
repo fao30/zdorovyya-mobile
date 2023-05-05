@@ -292,6 +292,7 @@ export const clinics = StyleSheet.create({
     flexDirection: "row",
     paddingLeft: 24,
     paddingRight: 24,
+    gap: 4,
   },
   daysGap: {
     flexDirection: "row",
