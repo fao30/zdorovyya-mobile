@@ -147,7 +147,6 @@ export default class CalendarDaysCustom extends React.Component {
 
     if (availableDates) {
       days = availableDates.map((val, key) => {
-        console.log(key, "<<<== this is key");
         const isClosedStyle = val.open ? null : style.closed;
 
         // const isClosedMonthStyle = val.disabled

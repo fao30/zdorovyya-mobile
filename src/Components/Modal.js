@@ -22,7 +22,7 @@ const ModalComp = ({ modalVisible, onPressOK, onPressCancel, content }) => {
                 style={{
                   flexDirection: "row",
                   gap: 10,
-                  paddingTop: 10,
+                  paddingVertical: 10,
                 }}
               >
                 <Pressable onPress={onPressCancel}>
@@ -58,7 +58,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: "white",
     borderRadius: 10,
-    padding: 20,
+    paddingHorizontal: 20,
     shadowColor: "#000",
     shadowOffset: {
       width: 0,

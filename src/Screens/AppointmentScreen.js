@@ -17,6 +17,8 @@ import { date, doctor, location } from "../Icons/Appointment";
 import { doctorIcon, expandIcon, hideIcon } from "../Icons/HideExpand";
 import { Navigation } from "../Components/Navigation";
 import ModalComp from "../Components/Modal";
+import { add, plant, share } from "../Icons/Navigation";
+import Checkbox from "expo-checkbox";
 
 const cardData = [
   { icon: date, desc: "23.08.2022, 12:00" },
@@ -30,10 +32,116 @@ const AppointmentScreen = ({ navigation }) => {
   function closeModal() {
     setModalVisible(false);
   }
+  const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
 
   return (
     <>
-      <ModalComp modalVisible={modalVisible} onPressCancel={closeModal} />
+      <ModalComp
+        modalVisible={modalVisible}
+        onPressCancel={closeModal}
+        content={
+          <View
+            style={{ paddingVertical: 20, flexDirection: "colum", gap: 14 }}
+          >
+            <View
+              style={{ justifyContent: "space-between", flexDirection: "row" }}
+            >
+              <View
+                style={{
+                  flexDirection: "column",
+                }}
+              >
+                <Text
+                  style={{ color: "#9197B3", fontWeight: 700, fontSize: 18 }}
+                >
+                  Номер записи:
+                </Text>
+                <Text
+                  style={{ color: "#9197B3", fontWeight: 700, fontSize: 18 }}
+                >
+                  dnajsd
+                </Text>
+              </View>
+              <Pressable
+              // onPress={()=>{}}
+              >
+                <SvgXml xml={share} />
+              </Pressable>
+            </View>
+            <View
+              style={{
+                flexDirection: "column",
+                gap: 12,
+                justifyContent: "center",
+                alignItems: "center",
+              }}
+            >
+              <SvgXml xml={plant} />
+              <Text style={{ fontSize: 20, color: "black", fontWeight: 700 }}>
+                Вы успешно записаны!
+              </Text>
+            </View>
+            <View style={{ flexDirection: "column", gap: 10, width: "80%" }}>
+              <Text style={{ fontSize: 16 }}>Психотерапевт:</Text>
+              {cardData?.map((e, i) => {
+                return (
+                  <View
+                    key={i}
+                    style={{
+                      flexDirection: "row",
+                      gap: 6,
+                      alignItems: "center",
+                    }}
+                  >
+                    <View>
+                      <SvgXml xml={e?.icon} />
+                    </View>
+                    <Text>{e?.desc}</Text>
+                  </View>
+                );
+              })}
+            </View>
+            <View style={{ flexDirection: "column", gap: 12 }}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#9197B3" }}>Уведомить о записи:</Text>
+                <Checkbox
+                  style={{
+                    width: 22,
+                    height: 22,
+                    borderRadius: 7,
+                  }}
+                  value={toggleCheckBox}
+                  onValueChange={setToggleCheckBox}
+                  color={toggleCheckBox ? "#3989FA" : "black"}
+                />
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                }}
+              >
+                <Text style={{ color: "#9197B3" }}>
+                  Добавить в гугл календарь
+                </Text>
+                <Pressable
+                // onPress={()=>{}}
+                >
+                  <SvgXml xml={add} />
+                </Pressable>
+              </View>
+            </View>
+          </View>
+        }
+      />
+
       <SafeAreaView
         style={{
           height: "100%",
@@ -96,7 +204,7 @@ const AppointmentScreen = ({ navigation }) => {
                 style={clinics.orderItem}
                 // key={id}
                 onPress={() => {
-                  setIsExpand(isExpand ? false : true);
+                  setIsExpand(!isExpand);
                 }}
               >
                 <View style={clinics.row}>
