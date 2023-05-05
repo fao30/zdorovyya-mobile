@@ -34,8 +34,14 @@ import Input from "../Components/Input";
 import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
+import InputFields from "../Components/Profile/InputFields";
+import { useRoute } from "@react-navigation/native";
+
 export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
+
+  const ScreenName = route.name;
+  console.log(">>>>", ScreenName);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -49,7 +55,10 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
             >
               <SvgXml xml={closeIcon} style={profileEdit.title} />
             </Pressable>
-            <Text style={universal.headerFont}>Профиль</Text>
+            <Text style={universal.headerFont}>
+              {ScreenName === "Profile Edit" && "Профиль"}
+              {ScreenName === "Profile Family Add" && "Моя семья"}
+            </Text>
           </View>
           <View style={profileEdit.title}>
             <Pressable onPress={Keyboard.dismiss}>
@@ -62,40 +71,7 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
           enableOnAndroid={true}
           keyboardShouldPersistTaps="handled"
         >
-          <ScrollView>
-            <View style={profileEdit.inputContainer}>
-              <Input label="Фамилия" />
-              <Input label="Имя" />
-              <Input label="Отчество" />
-            </View>
-            <View style={profileEdit.radioButtonContainer}>
-              <Text style={[profileEdit.labelInput]}>Пол</Text>
-              <View style={profileEdit.radioButtonContainerInside}>
-                <View style={profileEdit.radioButton}>
-                  <RadioButtonComponent
-                    label="Женский"
-                    color="#3989FA"
-                    status="checked"
-                  />
-                  <RadioButtonComponent
-                    label="Мужской"
-                    color="#3989FA"
-                    status="checked"
-                  />
-                </View>
-              </View>
-            </View>
-            <View style={profileEdit.inputContainer}>
-              <Input label="Дата рождения" />
-              <Input label="Телефон" />
-              <Input label="Email" />
-            </View>
-            <View style={profileEdit.inputContainer}>
-              <Text style={profileEdit.dataPassport}>Паспортные данные</Text>
-              <Input label="Серия" />
-              <Input label="Номер" />
-            </View>
-          </ScrollView>
+          <InputFields />
         </KeyboardAwareScrollView>
         <Navigation navigation={navigation} params={params} active="profile" />
       </SafeAreaView>

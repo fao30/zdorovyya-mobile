@@ -75,6 +75,13 @@ const App = () => {
           }}
         />
         <Stack.Screen
+          name="Profile Family Add"
+          component={ProfileScreenEdit}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
           name="SmsCode"
           component={SmscodeScreen}
           options={{

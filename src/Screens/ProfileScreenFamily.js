@@ -43,7 +43,9 @@ export const ProfileScreenFamily = ({ navigation, route }) => {
           <Text style={universal.headerFont}>Моя семья</Text>
         </View>
         <View style={{ flexDirection: "row", alignItems: "center", gap: 10 }}>
-          <SvgXml xml={addProfileIcon} />
+          <Pressable onPress={() => navigation.navigate("Profile Family Add")}>
+            <SvgXml xml={addProfileIcon} />
+          </Pressable>
         </View>
       </View>
       <View style={profileFamily.content}>
