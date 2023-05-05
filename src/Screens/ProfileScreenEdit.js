@@ -19,6 +19,7 @@ import {
   Pressable,
   Platform,
 } from "react-native";
+import React, { useEffect, useState } from "react";
 import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 import { RadioButton } from "react-native-paper";
 import { expandIcon, hideIcon } from "../Icons/HideExpand";
@@ -34,13 +35,17 @@ import Input from "../Components/Input";
 import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
-import InputFields from "../Components/Profile/InputFields";
-
 export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
 
   const ScreenName = route.name;
-  console.log("Screen Name =>", ScreenName);
+  // console.log("Screen Name =>", ScreenName);
+
+  const [data, setData] = useState({});
+
+  useEffect(() => {
+    console.log("DATA>>", data);
+  }, [data]);
 
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
@@ -70,7 +75,91 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
           enableOnAndroid={true}
           keyboardShouldPersistTaps="handled"
         >
-          <InputFields />
+          <ScrollView>
+            <View style={profileEdit.inputContainer}>
+              <Input
+                label="Фамилия"
+                value={data?.familyName}
+                onChangeText={(e) => {
+                  setData({ ...data, familyName: e });
+                }}
+              />
+              <Input
+                label="Имя"
+                value={data?.firstName}
+                onChangeText={(e) => {
+                  setData({ ...data, firstName: e });
+                }}
+              />
+              <Input
+                label="Отчество"
+                value={data?.middleName}
+                onChangeText={(e) => {
+                  setData({ ...data, middleName: e });
+                }}
+              />
+            </View>
+            <View style={profileEdit.radioButtonContainer}>
+              <Text style={[profileEdit.labelInput]}>Пол</Text>
+              <View style={profileEdit.radioButtonContainerInside}>
+                <View style={profileEdit.radioButton}>
+                  <RadioButtonComponent
+                    label="Женский"
+                    color="#3989FA"
+                    status="checked"
+                  />
+                  <RadioButtonComponent
+                    label="Мужской"
+                    color="#3989FA"
+                    status="checked"
+                  />
+                </View>
+              </View>
+            </View>
+            <View style={profileEdit.inputContainer}>
+              <Input
+                label="Дата рождения"
+                value={data?.dateOfBirth}
+                onChangeText={(e) => {
+                  setData({ ...data, dateOfBirth: e });
+                }}
+              />
+              <Input
+                label="Телефон"
+                value={data?.telephone}
+                onChangeText={(e) => {
+                  setData({ ...data, telephone: e });
+                }}
+                keyboardType="numeric"
+              />
+              <Input
+                label="Email"
+                value={data?.email}
+                onChangeText={(e) => {
+                  setData({ ...data, email: e });
+                }}
+                keyboardType="email-address"
+              />
+            </View>
+            <View style={profileEdit.inputContainer}>
+              <Text style={profileEdit.dataPassport}>Паспортные данные</Text>
+              <Input
+                label="Серия"
+                value={data?.passportSeries}
+                onChangeText={(e) => {
+                  setData({ ...data, passportSeries: e });
+                }}
+              />
+              <Input
+                label="Номер"
+                value={data?.passportNumber}
+                onChangeText={(e) => {
+                  setData({ ...data, passportNumber: e });
+                }}
+                keyboardType="numeric"
+              />
+            </View>
+          </ScrollView>
         </KeyboardAwareScrollView>
         <Navigation navigation={navigation} params={params} active="profile" />
       </SafeAreaView>
