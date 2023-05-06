@@ -51,9 +51,10 @@ function Orders({ orders }) {
       </TouchableOpacity>
     );
   };
-  return orders.map((order) => {
+  return orders.map((order, index) => {
     return (
       <Item
+        key={index}
         id={order.id}
         time={order.time}
         date={order.date}

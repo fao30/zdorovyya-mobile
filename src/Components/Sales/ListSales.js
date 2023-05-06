@@ -16,8 +16,10 @@ function Sales({ sales }) {
     </TouchableOpacity>
   );
 
-  return sales.map((sale) => {
-    return <Item id={sale.id} title={sale.title} icon={sale.icon} />;
+  return sales.map((sale, index) => {
+    return (
+      <Item key={index} id={sale.id} title={sale.title} icon={sale.icon} />
+    );
   });
 }
 

@@ -34,11 +34,7 @@ export const Navigation = (props) => {
         }}
         style={props.active == "main" ? navstyle.buttonActive : navstyle.button}
       >
-        <SvgXml
-          xml={props.active == "main" ? homeActive : home}
-          style={navstyle.icon}
-        />
-
+        <SvgXml xml={props.active == "main" ? homeActive : home} />
         <Text
           style={props.active == "main" ? navstyle.textActive : navstyle.text}
         >
@@ -53,11 +49,7 @@ export const Navigation = (props) => {
           props.active == "sales" ? navstyle.buttonActive : navstyle.button
         }
       >
-        <SvgXml
-          xml={props.active == "sales" ? salesActive : sales}
-          style={navstyle.icon}
-        />
-
+        <SvgXml xml={props.active == "sales" ? salesActive : sales} />
         <Text
           style={props.active == "sales" ? navstyle.textActive : navstyle.text}
         >
@@ -72,11 +64,7 @@ export const Navigation = (props) => {
           props.active == "orders" ? navstyle.buttonActive : navstyle.button
         }
       >
-        <SvgXml
-          xml={props.active == "orders" ? ordersActive : orders}
-          style={navstyle.icon}
-        />
-
+        <SvgXml xml={props.active == "orders" ? ordersActive : orders} />
         <Text
           style={props.active == "orders" ? navstyle.textActive : navstyle.text}
         >
@@ -91,11 +79,7 @@ export const Navigation = (props) => {
           props.active == "health" ? navstyle.buttonActive : navstyle.button
         }
       >
-        <SvgXml
-          xml={props.active == "health" ? healthActive : health}
-          style={navstyle.icon}
-        />
-
+        <SvgXml xml={props.active == "health" ? healthActive : health} />
         <Text
           style={props.active == "health" ? navstyle.textActive : navstyle.text}
         >
@@ -110,11 +94,7 @@ export const Navigation = (props) => {
           props.active == "profile" ? navstyle.buttonActive : navstyle.button
         }
       >
-        <SvgXml
-          xml={props.active == "profile" ? profileActive : profile}
-          style={navstyle.icon}
-        />
-
+        <SvgXml xml={props.active == "profile" ? profileActive : profile} />
         <Text
           style={
             props.active == "profile" ? navstyle.textActive : navstyle.text

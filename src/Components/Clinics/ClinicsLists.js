@@ -98,9 +98,10 @@ function Clinics({ clinicsData, navigation }) {
       </View>
     );
   };
-  return clinicsData?.map((clinic) => {
+  return clinicsData?.map((clinic, index) => {
     return (
       <Item
+        key={index}
         id={clinic.id}
         time={clinic.time}
         date={clinic.date}

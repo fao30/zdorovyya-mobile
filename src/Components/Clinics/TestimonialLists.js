@@ -20,9 +20,9 @@ export const TestimonialLists = ({ data }) => {
       showsVerticalScrollIndicator={false}
       showsHorizontalScrollIndicator={false}
     >
-      {data.map((e) => {
+      {data.map((e, i) => {
         return (
-          <View style={clinics.testimonialBoxShow}>
+          <View key={i} style={clinics.testimonialBoxShow}>
             {/* ini boxnya */}
             <View style={clinics.testimonialBoxShowTile}>
               <View style={{ width: "90%" }}>
