@@ -1,4 +1,11 @@
-import { View, Text, SafeAreaView, TextInput, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  SafeAreaView,
+  TextInput,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import React from "react";
 import { SvgXml } from "react-native-svg";
 import { chosenDateIcon } from "../Icons/HideExpand";
@@ -139,7 +146,7 @@ export default function FilterRegionScreen() {
             );
           })}
         </View>
-        <View style={{ paddingVertical: 20 }}>
+        <ScrollView style={{ paddingVertical: 20 }}>
           {filteredData?.map((e, i) => {
             return (
               <View
@@ -181,7 +188,7 @@ export default function FilterRegionScreen() {
               </View>
             );
           })}
-        </View>
+        </ScrollView>
       </View>
     </SafeAreaView>
   );
