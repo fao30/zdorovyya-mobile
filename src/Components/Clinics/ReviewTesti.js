@@ -16,9 +16,9 @@ export const ReviewTesti = ({ data }) => {
   });
   return (
     <View style={clinics.gapTestimonial}>
-      {data.map((e) => {
+      {data.map((e, i) => {
         return (
-          <View style={clinics.testimonialBar}>
+          <View key={i} style={clinics.testimonialBar}>
             <View style={clinics.testimonialTextView}>
               <Text style={clinics.testimonialText}>{e}</Text>
             </View>

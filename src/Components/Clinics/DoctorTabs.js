@@ -42,6 +42,7 @@ export const DoctorTab = ({ tabClick }) => {
         {Titles.map((e, i) => {
           return (
             <Pressable
+              key={i}
               onPress={() => {
                 tabClick(i);
                 setTabClicked(i);
@@ -59,6 +60,7 @@ export const DoctorTab = ({ tabClick }) => {
         {Titles.map((e, i) => {
           return (
             <Pressable
+              key={i}
               onPress={() => {
                 tabClick(i);
                 setTabClicked(i);

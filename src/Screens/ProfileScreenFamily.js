@@ -80,48 +80,46 @@ export const ProfileScreenFamily = ({ navigation, route }) => {
       )}
       {dataUser.length > 0 && (
         <ScrollView>
-          {dataUser.map((e) => (
-            <>
-              <View style={[profileFamily.contentExist]}>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    gap: 5,
-                  }}
-                >
-                  <Text>Family Name: {e?.familyName}</Text>
-                  <Text>{e?.firstName}</Text>
-                  <Text>{e?.middleName}</Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    gap: 5,
-                  }}
-                >
-                  <Text>{e?.gender}</Text>
-                  <Text>{e?.dateOfBirth}</Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    gap: 5,
-                  }}
-                >
-                  <Text>{e?.telephone}</Text>
-                  <Text>{e?.email}</Text>
-                </View>
-                <View
-                  style={{
-                    flexDirection: "row",
-                    gap: 5,
-                  }}
-                >
-                  <Text>{e?.passportSeries}</Text>
-                  <Text>{e?.passportNumber}</Text>
-                </View>
+          {dataUser.map((e, i) => (
+            <View key={i} style={[profileFamily.contentExist]}>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 5,
+                }}
+              >
+                <Text>Family Name: {e?.familyName}</Text>
+                <Text>{e?.firstName}</Text>
+                <Text>{e?.middleName}</Text>
               </View>
-            </>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 5,
+                }}
+              >
+                <Text>{e?.gender}</Text>
+                <Text>{e?.dateOfBirth}</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 5,
+                }}
+              >
+                <Text>{e?.telephone}</Text>
+                <Text>{e?.email}</Text>
+              </View>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 5,
+                }}
+              >
+                <Text>{e?.passportSeries}</Text>
+                <Text>{e?.passportNumber}</Text>
+              </View>
+            </View>
           ))}
         </ScrollView>
       )}

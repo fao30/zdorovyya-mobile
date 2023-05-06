@@ -71,8 +71,9 @@ export const ProfileScreenSettings = ({ navigation, route }) => {
         </View>
       </View>
       <ScrollView>
-        {data.map((props) => (
+        {data.map((props, i) => (
           <View
+            key={i}
             style={{
               flexDirection: "row",
               alignItems: "center",

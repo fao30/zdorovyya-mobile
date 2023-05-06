@@ -27,6 +27,7 @@ export const ReviewStarBoxes = ({ data }) => {
           e === value ? { color: "#ffffff" } : { color: "black" };
         return (
           <Pressable
+            key={i}
             onPress={() => {
               setValue(e);
             }}

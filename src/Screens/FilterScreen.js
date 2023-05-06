@@ -275,6 +275,7 @@ export default function FilterScreen({ navigation }) {
         </View>
       </View>
       <TouchableOpacity
+        onPress={() => navigation.goBack()}
         style={{
           marginTop: "auto",
           padding: 24,

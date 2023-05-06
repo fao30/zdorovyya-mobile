@@ -2,36 +2,35 @@ import { StyleSheet, Text, View, Button } from "react-native";
 export const navstyle = StyleSheet.create({
   container: {
     marginTop: "auto",
-    padding: 12,
-    paddingTop: 0,
     flexDirection: "row",
     alignItems: "flex-end",
-    justifyContent: "space-between",
-  },
-  icon: {
-    width: 20,
-    height: 20,
-    marginBottom: 5,
+    justifyContent: "space-evenly",
+    width: "100%",
   },
   button: {
     alignItems: "center",
     justifyContent: "center",
-    width: 74,
-  },
-  text: {
-    fontSize: 9,
-    color: "#9197B3",
-  },
-  textActive: {
-    fontSize: 9,
-    color: "#3989FA",
+    width: "18%",
+    gap: 5,
+    paddingTop: 7,
+    borderTopWidth: 3,
+    borderTopColor: "transparent",
   },
   buttonActive: {
     alignItems: "center",
     justifyContent: "center",
-    width: 74,
+    width: "18%",
+    gap: 5,
+    paddingTop: 7,
     borderTopWidth: 3,
     borderTopColor: "#3989FA",
-    paddingTop: 8,
+  },
+  text: {
+    fontSize: 11,
+    color: "#9197B3",
+  },
+  textActive: {
+    fontSize: 11,
+    color: "#3989FA",
   },
 });

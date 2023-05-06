@@ -14,11 +14,13 @@ export const ReviewStarts = ({ stars, isOrange }) => {
 
   return (
     <View style={clinics.gapReviews}>
-      {limit.map((e) => {
+      {limit.map((e, i) => {
         if (e <= stars) {
-          return <SvgXml xml={isOrange ? starFilledOrange : starFilled} />;
+          return (
+            <SvgXml key={i} xml={isOrange ? starFilledOrange : starFilled} />
+          );
         }
-        return <SvgXml xml={starOutlined} />;
+        return <SvgXml key={i} xml={starOutlined} />;
       })}
     </View>
   );

@@ -237,6 +237,7 @@ export default function FilterRegionScreen({ navigation }) {
         </ScrollView>
       </View>
       <TouchableOpacity
+        onPress={() => navigation.goBack()}
         style={{
           marginTop: "auto",
           padding: 24,
