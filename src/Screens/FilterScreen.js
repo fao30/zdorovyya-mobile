@@ -125,7 +125,7 @@ export default function FilterScreen() {
 
   return (
     <SafeAreaView style={{ backgroundColor: "white", flex: 1 }}>
-      <ScrollView>
+      <View>
         <View
           style={{
             paddingVertical: 24,
@@ -203,7 +203,7 @@ export default function FilterScreen() {
           </View>
           <View style={{ flexDirection: "column", gap: 12, paddingBottom: 16 }}>
             <Text style={filters.textHeader}>Район</Text>
-            <View>
+            <ScrollView>
               {region?.map((e, i) => {
                 return (
                   <View
@@ -245,10 +245,10 @@ export default function FilterScreen() {
                   </View>
                 );
               })}
-            </View>
+            </ScrollView>
           </View>
         </View>
-      </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
