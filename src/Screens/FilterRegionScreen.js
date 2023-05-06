@@ -5,14 +5,17 @@ import {
   TextInput,
   Pressable,
   ScrollView,
+  TouchableOpacity,
 } from "react-native";
 import React from "react";
 import { SvgXml } from "react-native-svg";
 import { chosenDateIcon } from "../Icons/HideExpand";
 import { filters } from "../Styles/Filter";
 import Checkbox from "expo-checkbox";
+import { appointment } from "../Styles/Appointment";
+import { Navigation } from "../Components/Navigation";
 
-export default function FilterRegionScreen() {
+export default function FilterRegionScreen({ navigation }) {
   const [regionSearch, setRegionSearch] = React.useState("");
   const [selected, setSelected] = React.useState(0);
   const toggleData = [
@@ -102,6 +105,46 @@ export default function FilterRegionScreen() {
       quantity: "12",
       checked: false,
     },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
+    {
+      label: "Горки",
+      quantity: "12",
+      checked: false,
+    },
   ]);
 
   const filteredData = selected === 0 ? region : metro;
@@ -146,7 +189,10 @@ export default function FilterRegionScreen() {
             );
           })}
         </View>
-        <ScrollView style={{ paddingVertical: 20 }}>
+        <ScrollView
+          style={{ paddingVertical: 20, height: "60%" }}
+          showsVerticalScrollIndicator={false}
+        >
           {filteredData?.map((e, i) => {
             return (
               <View
@@ -190,6 +236,29 @@ export default function FilterRegionScreen() {
           })}
         </ScrollView>
       </View>
+      <TouchableOpacity
+        style={{
+          marginTop: "auto",
+          padding: 24,
+          position: "absolute",
+          bottom: 90,
+          width: "100%",
+        }}
+      >
+        <View style={appointment.buttonConfirm}>
+          <Text
+            style={{
+              textAlign: "center",
+              color: "white",
+              fontWeight: 700,
+              fontSize: 16,
+            }}
+          >
+            Применять фильтры
+          </Text>
+        </View>
+      </TouchableOpacity>
+      <Navigation navigation={navigation} active="main" />
     </SafeAreaView>
   );
 }
