@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   StyleSheet,
   Button,
@@ -35,14 +35,53 @@ import { hideIcon, expandIcon } from "../Icons/HideExpand";
 import { DoctorsLists } from "../Components/Clinics/DoctorsLists";
 import ModalComp from "../Components/Modal";
 import Checkbox from "expo-checkbox";
+import RadioGroup from "react-native-radio-buttons-group";
 
 export const ClinicsScreen = ({ navigation, route }) => {
   const [isClinic, setIsClinic] = useState(true);
-  const [sort, setSort] = useState(null);
+  const [filters, setFilters] = useState(null);
+  const [checked, setChecked] = useState();
+
+  const sort = React.useMemo(() => [
+    {
+      id: "1",
+      label: "Сначала дешевле",
+      value: "1",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+      },
+    },
+    {
+      id: "2",
+      label: "Сначала дороже",
+      value: "2",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+      },
+    },
+    {
+      id: "3",
+      label: "Ближайшая запись",
+      value: "Ближайшая запись",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+      },
+    },
+    {
+      id: "4",
+      label: "По популярности (отзывам)",
+      value: "1",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+      },
+    },
+  ]);
+
   const params = route.params;
-  //NOTES
-  //HARD CODE
-  //ONPRESS GA ADA, NO ACTION
 
   const [modalVisible, setModalVisible] = React.useState(false);
 
@@ -51,28 +90,25 @@ export const ClinicsScreen = ({ navigation, route }) => {
       <ModalComp
         modalVisible={modalVisible}
         content={
-          sort === 0 ? (
+          filters === 0 ? (
             <View style={{ paddingVertical: 20, gap: 12 }}>
               <Text style={{ fontSize: 18, color: "black", fontWeight: 700 }}>
                 Сортировка
               </Text>
               <View style={{ flexDirection: "column", gap: 6 }}>
-                <View style={{ flexDirection: "row", gap: 6 }}>
-                  <Text>Сначала дежевле</Text>
-                  <Checkbox
-                    style={{
-                      width: 22,
-                      height: 22,
-                      borderRadius: 7,
-                    }}
-                    // value={toggleCheckBox}
-                    // onValueChange={setToggleCheckBox}
-                    // color={toggleCheckBox ? "#3989FA" : "black"}
-                  />
-                </View>
+                <RadioGroup
+                  radioButtons={sort}
+                  onPress={setChecked}
+                  selectedId={checked}
+                  labelStyle={{}}
+                  containerStyle={{
+                    flexDirection: "column",
+                    alignItems: "flex-start",
+                  }}
+                />
               </View>
             </View>
-          ) : sort === 1 ? (
+          ) : filters === 1 ? (
             <Text>sort</Text>
           ) : (
             <Text>Rayon</Text>
@@ -85,9 +121,8 @@ export const ClinicsScreen = ({ navigation, route }) => {
           <Pressable
             style={clinics.filterButton}
             onPress={() => {
-              console.log("EEEEEE", navigation);
               setModalVisible(true);
-              setSort(0);
+              setFilters(0);
             }}
           >
             <View>
@@ -98,7 +133,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
           <Pressable
             onPress={() => {
               setModalVisible(true);
-              setSort(1);
+              setFilters(1);
             }}
             style={clinics.filterButton}
           >
@@ -110,7 +145,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
           <Pressable
             onPress={() => {
               setModalVisible(true);
-              setSort(2);
+              setFilters(2);
             }}
             style={clinics.filterButton}
           >

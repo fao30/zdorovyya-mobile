@@ -88,14 +88,12 @@ function Clinics({ clinicsData, navigation }) {
             <Text style={clinics.address}>Улица Сибгата Хакима, д56</Text>
           </TouchableOpacity>
         </View>
+        <View style={clinics.chooseAddress}>{/* <DateLists /> */}</View>
         <View style={clinics.chooseAddress}>
-          <DateLists />
-        </View>
-        <View style={clinics.chooseAddress}>
-          <TimeLists
+          {/* <TimeLists
             navigation={navigation}
             timeLists={["12:20", "14:20", "20:30", "20:20", "12:20", "12:20"]}
-          />
+          /> */}
         </View>
       </View>
     );

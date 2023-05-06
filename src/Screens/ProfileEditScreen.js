@@ -55,7 +55,6 @@ export const ProfileEditScreen = ({ navigation, route }) => {
           </View>
         </View>
         <KeyboardAwareScrollView
-          extraScrollHeight={100}
           enableOnAndroid={true}
           keyboardShouldPersistTaps="handled"
         >

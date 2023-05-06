@@ -108,9 +108,7 @@ function Doctors({ clinicsData, navigation }) {
             <Text style={clinics.address}>Улица Сибгата Хакима, д56</Text>
           </TouchableOpacity>
         </View>
-        <View style={clinics.chooseAddress}>
-          <DateLists />
-        </View>
+        <View style={clinics.chooseAddress}>{/* <DateLists /> */}</View>
         <View style={clinics.chooseAddress}>
           <TimeLists
             navigation={navigation}
