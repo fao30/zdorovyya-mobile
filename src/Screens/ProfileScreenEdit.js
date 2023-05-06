@@ -35,15 +35,27 @@ import Input from "../Components/Input";
 import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
 
+const defaultValues = {
+  familyName: "",
+  firstName: "",
+  middleName: "",
+  gender: null,
+  dateOfBirth: "",
+  telephone: null,
+  email: "",
+  passportSeries: "",
+  passportNumber: null,
+};
+
 export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
-
   const ScreenName = route.name;
 
-  const [data, setData] = useState({});
+  const [data, setData] = useState(defaultValues);
 
   const handleSubmit = () => {
     console.log("SUBMMITED>>", data);
+    setData(defaultValues);
   };
 
   return (
@@ -105,12 +117,18 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
                   <RadioButtonComponent
                     label="Женский"
                     color="#3989FA"
-                    status="checked"
+                    status={data?.gender === "woman" ? "checked" : "unchecked"}
+                    onPress={() => {
+                      setData({ ...data, gender: "woman" });
+                    }}
                   />
                   <RadioButtonComponent
                     label="Мужской"
                     color="#3989FA"
-                    status="checked"
+                    status={data?.gender === "man" ? "checked" : "unchecked"}
+                    onPress={() => {
+                      setData({ ...data, gender: "man" });
+                    }}
                   />
                 </View>
               </View>
