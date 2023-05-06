@@ -39,7 +39,6 @@ import RadioGroup from "react-native-radio-buttons-group";
 
 export const ClinicsScreen = ({ navigation, route }) => {
   const [isClinic, setIsClinic] = useState(true);
-  const [filters, setFilters] = useState(null);
   const [checked, setChecked] = useState();
 
   const sort = React.useMemo(() => [
@@ -50,6 +49,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
       color: "#3989FA",
       labelStyle: {
         color: "#9197B3",
+        fontWeight: 500,
       },
     },
     {
@@ -59,6 +59,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
       color: "#3989FA",
       labelStyle: {
         color: "#9197B3",
+        fontWeight: 500,
       },
     },
     {
@@ -68,6 +69,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
       color: "#3989FA",
       labelStyle: {
         color: "#9197B3",
+        fontWeight: 500,
       },
     },
     {
@@ -77,6 +79,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
       color: "#3989FA",
       labelStyle: {
         color: "#9197B3",
+        fontWeight: 500,
       },
     },
   ]);
@@ -90,29 +93,22 @@ export const ClinicsScreen = ({ navigation, route }) => {
       <ModalComp
         modalVisible={modalVisible}
         content={
-          filters === 0 ? (
-            <View style={{ paddingVertical: 20, gap: 12 }}>
-              <Text style={{ fontSize: 18, color: "black", fontWeight: 700 }}>
-                Сортировка
-              </Text>
-              <View style={{ flexDirection: "column", gap: 6 }}>
-                <RadioGroup
-                  radioButtons={sort}
-                  onPress={setChecked}
-                  selectedId={checked}
-                  labelStyle={{}}
-                  containerStyle={{
-                    flexDirection: "column",
-                    alignItems: "flex-start",
-                  }}
-                />
-              </View>
+          <View style={{ paddingVertical: 20, gap: 12 }}>
+            <Text style={{ fontSize: 18, color: "black", fontWeight: 700 }}>
+              Сортировка
+            </Text>
+            <View style={{ flexDirection: "column", gap: 6 }}>
+              <RadioGroup
+                radioButtons={sort}
+                onPress={setChecked}
+                selectedId={checked}
+                containerStyle={{
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              />
             </View>
-          ) : filters === 1 ? (
-            <Text>sort</Text>
-          ) : (
-            <Text>Rayon</Text>
-          )
+          </View>
         }
         onPressCancel={() => setModalVisible(false)}
       />
@@ -120,10 +116,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
         <View style={clinics.filters}>
           <Pressable
             style={clinics.filterButton}
-            onPress={() => {
-              setModalVisible(true);
-              setFilters(0);
-            }}
+            onPress={() => setModalVisible(true)}
           >
             <View>
               <SvgXml xml={filterIcon} />
@@ -132,8 +125,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
           </Pressable>
           <Pressable
             onPress={() => {
-              setModalVisible(true);
-              setFilters(1);
+              navigation.navigate("Filter");
             }}
             style={clinics.filterButton}
           >
@@ -144,8 +136,7 @@ export const ClinicsScreen = ({ navigation, route }) => {
           </Pressable>
           <Pressable
             onPress={() => {
-              setModalVisible(true);
-              setFilters(2);
+              navigation.navigate("FilterRegion");
             }}
             style={clinics.filterButton}
           >

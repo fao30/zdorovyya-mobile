@@ -115,7 +115,7 @@ const AppointmentScreen = ({ navigation }) => {
                   style={{
                     width: 22,
                     height: 22,
-                    borderRadius: 7,
+                    borderRadius: 5,
                   }}
                   value={toggleCheckBox}
                   onValueChange={setToggleCheckBox}

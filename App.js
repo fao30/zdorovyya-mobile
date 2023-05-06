@@ -21,6 +21,8 @@ import { ProfileScreen } from "./src/Screens/ProfileScreen";
 import { ProfileScreenEdit } from "./src/Screens/ProfileScreenEdit";
 import { ProfileScreenSettings } from "./src/Screens/ProfileScreenSettings";
 import { ProfileScreenFamily } from "./src/Screens/ProfileScreenFamily";
+import FilterScreen from "./src/Screens/FilterScreen";
+import FilterRegionScreen from "./src/Screens/FilterRegionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -156,6 +158,24 @@ const App = () => {
             animationEnabled: true,
             headerShown: true,
             title: "Оформление",
+          }}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={FilterScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Фильтр",
+          }}
+        />
+        <Stack.Screen
+          name="FilterRegion"
+          component={FilterRegionScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Расположение",
           }}
         />
       </Stack.Navigator>

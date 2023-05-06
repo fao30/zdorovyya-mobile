@@ -207,13 +207,7 @@ export default class CalendarDaysCustom extends React.Component {
     }
 
     return (
-      <View
-        style={{
-          height: constants.HEIGHT,
-          width: scrollWidth,
-          flexDirection: "row",
-        }}
-      >
+      <View style={{ justifyContent: "flex-start", alignItems: "flex-start" }}>
         {/* {showArrows ? (
           <TouchableOpacity
             style={style.arrow}
@@ -236,7 +230,7 @@ export default class CalendarDaysCustom extends React.Component {
           decelerationRate="fast"
           showsHorizontalScrollIndicator={false}
         >
-          <View style={{ width: (scrollWidth % constants.DAY_SIZE) / 2 }} />
+          <View />
           {days || null}
         </ScrollView>
         {/* {showArrows ? (
