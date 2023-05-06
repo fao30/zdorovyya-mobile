@@ -30,8 +30,8 @@ import DateTimePickerModal from "react-native-modal-datetime-picker";
 // utils
 import { dateFormatNumber } from "../../utils";
 
-const Input = ({ label, value, onChangeText, keyboardType, setData, data }) => {
-  const [selectedDate, setSelectedDate] = useState();
+const Input = ({ label, value, onChangeText, inputMode, setData, data }) => {
+  const [selectedDate, setSelectedDate] = useState(new Date());
   const [datePickerVisible, setDatePickerVisible] = useState(false);
 
   const showDatePicker = () => {
@@ -81,7 +81,7 @@ const Input = ({ label, value, onChangeText, keyboardType, setData, data }) => {
           style={profileEdit.textInput}
           value={value}
           onChangeText={onChangeText}
-          keyboardType={keyboardType}
+          inputMode={inputMode}
         />
       )}
     </>

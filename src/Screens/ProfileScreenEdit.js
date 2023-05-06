@@ -40,7 +40,7 @@ const defaultValues = {
   firstName: "",
   middleName: "",
   gender: null,
-  dateOfBirth: "",
+  dateOfBirth: null,
   telephone: null,
   email: "",
   passportSeries: "",
@@ -56,6 +56,9 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
   const handleSubmit = () => {
     console.log("SUBMMITED>>", data);
     setData(defaultValues);
+    if (ScreenName === "Profile Family Add") {
+      navigation.navigate("Profile Family");
+    }
   };
 
   return (
@@ -146,7 +149,7 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
                 onChangeText={(e) => {
                   setData({ ...data, telephone: e });
                 }}
-                keyboardType="numeric"
+                inputMode="numeric"
               />
               <Input
                 label="Email"
@@ -154,7 +157,7 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
                 onChangeText={(e) => {
                   setData({ ...data, email: e });
                 }}
-                keyboardType="email-address"
+                inputMode="email"
               />
             </View>
             <View style={profileEdit.inputContainer}>
@@ -172,7 +175,7 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
                 onChangeText={(e) => {
                   setData({ ...data, passportNumber: e });
                 }}
-                keyboardType="numeric"
+                inputMode="numeric"
               />
             </View>
           </ScrollView>
