@@ -42,6 +42,13 @@ const Input = ({ label, value, onChangeText, keyboardType, setData, data }) => {
     setDatePickerVisible(false);
   };
 
+  const handleConfirm = (e) => {
+    console.log("date >", dateFormatNumber(e));
+    setData({ ...data, dateOfBirth: dateFormatNumber(e) });
+    setSelectedDate(e);
+    hideDatePicker();
+  };
+
   return (
     <>
       <Text style={[profileEdit.labelInput]}>{label}</Text>
@@ -52,18 +59,19 @@ const Input = ({ label, value, onChangeText, keyboardType, setData, data }) => {
             onPressIn={showDatePicker}
             editable={false}
             placeholder="No date selected"
-            value={selectedDate
-              .toLocaleDateString()
-              .replace("/", ".")
-              .replace("/", ".")}
+            value={
+              selectedDate &&
+              selectedDate
+                .toLocaleDateString()
+                .replace("/", ".")
+                .replace("/", ".")
+            }
           />
           <DateTimePickerModal
+            date={selectedDate}
             isVisible={datePickerVisible}
             mode="date"
-            onConfirm={(e) => {
-              setData({ ...data, dateOfBirth: dateFormatNumber(e) });
-              hideDatePicker();
-            }}
+            onConfirm={(e) => handleConfirm(e)}
             onCancel={hideDatePicker}
             display="inline"
           />

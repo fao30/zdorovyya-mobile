@@ -39,7 +39,6 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
   const params = route.params;
 
   const ScreenName = route.name;
-  // console.log("Screen Name =>", ScreenName);
 
   const [data, setData] = useState({});
 
