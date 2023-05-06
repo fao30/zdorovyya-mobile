@@ -5,3 +5,14 @@ export const dateFormatNumber = (date) => {
   let da = new Intl.DateTimeFormat("ru", { day: "2-digit" }).format(d);
   return `${da}.${mo}.${ye}`;
 };
+
+// Function for forms validation
+export const validationFunction = (fields) => {
+  let noEmpty = true;
+  Object.entries(fields).forEach(([key, value]) => {
+    if (!value) {
+      noEmpty = false;
+    }
+  });
+  return noEmpty;
+};

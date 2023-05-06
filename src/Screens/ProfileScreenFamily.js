@@ -34,6 +34,14 @@ import { Navigation } from "../Components/Navigation";
 export const ProfileScreenFamily = ({ navigation, route }) => {
   const params = route.params;
 
+  const [data, setData] = useState([
+    {
+      familyName: "Anasfirly",
+      firstName: "Muhammad",
+      middleName: "Thomi",
+    },
+  ]);
+
   return (
     <SafeAreaView style={universal.container}>
       <View style={universal.header}>
@@ -49,12 +57,14 @@ export const ProfileScreenFamily = ({ navigation, route }) => {
           </Pressable>
         </View>
       </View>
-      <View style={profileFamily.content}>
-        <Image source={require("../../assets/image-family.png")} />
-        <Text style={profileFamily.contentText}>
-          Здесь будут данные о ваших {"\n"} близких
-        </Text>
-      </View>
+      <ScrollView>
+        <View style={profileFamily.content}>
+          <Image source={require("../../assets/image-family.png")} />
+          <Text style={profileFamily.contentText}>
+            Здесь будут данные о ваших {"\n"} близких
+          </Text>
+        </View>
+      </ScrollView>
       <Navigation navigation={navigation} params={params} active="profile" />
     </SafeAreaView>
   );

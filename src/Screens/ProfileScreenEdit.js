@@ -20,11 +20,6 @@ import {
   Platform,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
-import { RadioButton } from "react-native-paper";
-import { expandIcon, hideIcon } from "../Icons/HideExpand";
-import { closeIcon, tickIcon } from "../Icons/Profile";
-import { SvgXml } from "react-native-svg";
 
 // Styles
 import { universal } from "../Styles/Universal";
@@ -34,6 +29,12 @@ import { profileEdit } from "../Styles/ProfileEdit";
 import Input from "../Components/Input";
 import { RadioButtonComponent } from "../Components/RadioButtonComponent";
 import { Navigation } from "../Components/Navigation";
+
+// Miscellaneous
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import { closeIcon, tickIcon } from "../Icons/Profile";
+import { SvgXml } from "react-native-svg";
+import { validationFunction } from "../../utils";
 
 const defaultValues = {
   familyName: "",
@@ -54,10 +55,14 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
   const [data, setData] = useState(defaultValues);
 
   const handleSubmit = () => {
-    console.log("SUBMMITED>>", data);
-    setData(defaultValues);
-    if (ScreenName === "Profile Family Add") {
-      navigation.navigate("Profile Family");
+    if (!validationFunction(data)) {
+      console.log("INCOMPLETE>>", data);
+    } else {
+      console.log("SUBMMITED ALL>>", data);
+      setData(defaultValues);
+      if (ScreenName === "Profile Family Add") {
+        navigation.navigate("Profile Family");
+      }
     }
   };
 
