@@ -14,6 +14,7 @@ import { getHeaderTitle } from "@react-navigation/elements";
 import { ClinicsScreen } from "./src/Screens/ClinicsScreen";
 import { ClinicScreen } from "./src/Screens/ClinicScreen";
 import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
+import AppointmentScreen from "./src/Screens/AppointmentScreen";
 
 // Profile Screens
 import { ProfileScreen } from "./src/Screens/ProfileScreen";
@@ -146,6 +147,15 @@ const App = () => {
             animationEnabled: true,
             headerShown: true,
             title: "Карточка врача",
+          }}
+        />
+        <Stack.Screen
+          name="Appointment"
+          component={AppointmentScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Оформление",
           }}
         />
       </Stack.Navigator>

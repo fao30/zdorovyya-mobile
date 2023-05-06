@@ -24,7 +24,6 @@ import { Navigation } from "../Navigation";
 function Doctors({ clinicsData, navigation }) {
   const Item = ({ id, time, date, doctor, clinic, doctorname, address }) => {
     const [isExpand, setIsexpand] = useState(false);
-    console.log(id, "<<<<---this id");
 
     return (
       <View style={clinic.containerDoctors}>
@@ -103,7 +102,7 @@ function Doctors({ clinicsData, navigation }) {
             <View style={clinics.row}>
               <Text style={clinics.addressTitle}>Выбрать адрес</Text>
               <View>
-                <SvgXml xml={expandIcon} />
+                <SvgXml xml={isExpand ? expandIcon : hideIcon} />
               </View>
             </View>
             <Text style={clinics.address}>Улица Сибгата Хакима, д56</Text>
@@ -114,6 +113,7 @@ function Doctors({ clinicsData, navigation }) {
         </View>
         <View style={clinics.chooseAddress}>
           <TimeLists
+            navigation={navigation}
             timeLists={["12:20", "14:20", "20:30", "20:20", "12:20", "12:20"]}
           />
         </View>
