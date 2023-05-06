@@ -59,10 +59,12 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
       console.log("INCOMPLETE>>", data);
     } else {
       console.log("SUBMMITED ALL>>", data);
-      setData(defaultValues);
       if (ScreenName === "Profile Family Add") {
-        navigation.navigate("Profile Family");
+        navigation.navigate("Profile Family", {
+          data: data,
+        });
       }
+      setData(defaultValues);
     }
   };
 
@@ -125,17 +127,17 @@ export const ProfileScreenEdit = ({ navigation, route }) => {
                   <RadioButtonComponent
                     label="Женский"
                     color="#3989FA"
-                    status={data?.gender === "woman" ? "checked" : "unchecked"}
+                    status={data?.gender === "female" ? "checked" : "unchecked"}
                     onPress={() => {
-                      setData({ ...data, gender: "woman" });
+                      setData({ ...data, gender: "female" });
                     }}
                   />
                   <RadioButtonComponent
                     label="Мужской"
                     color="#3989FA"
-                    status={data?.gender === "man" ? "checked" : "unchecked"}
+                    status={data?.gender === "male" ? "checked" : "unchecked"}
                     onPress={() => {
-                      setData({ ...data, gender: "man" });
+                      setData({ ...data, gender: "male" });
                     }}
                   />
                 </View>

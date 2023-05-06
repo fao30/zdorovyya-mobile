@@ -43,7 +43,6 @@ const Input = ({ label, value, onChangeText, inputMode, setData, data }) => {
   };
 
   const handleConfirm = (e) => {
-    console.log("date >", dateFormatNumber(e));
     setData({ ...data, dateOfBirth: dateFormatNumber(e) });
     setSelectedDate(e);
     hideDatePicker();
