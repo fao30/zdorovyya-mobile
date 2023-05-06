@@ -31,6 +31,7 @@ import {
   addressIcon,
   callIcon,
   expandIcon,
+  hideIcon,
   metroIcon,
 } from "../../Icons/HideExpand";
 import { Navigation } from "../Navigation";
@@ -50,13 +51,13 @@ export const AppointmentDoctor = ({ navigation, data }) => {
           style={clinics.orderItem}
           // key={id}
           onPress={() => {
-            setIsexpand(isExpand ? false : true);
+            setIsexpand(!isExpand);
           }}
         >
           <View style={clinics.row}>
             <Text style={clinics.addressTitle}>Выбрать адрес</Text>
             <View>
-              <SvgXml xml={expandIcon} />
+              <SvgXml xml={isExpand ? expandIcon : hideIcon} />
             </View>
           </View>
           <Text style={clinics.address}>Улица Сибгата Хакима, д56</Text>

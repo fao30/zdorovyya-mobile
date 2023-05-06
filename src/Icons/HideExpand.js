@@ -16,7 +16,7 @@ export const expandIcon = `
 </svg>
 `;
 export const chosenDateIcon = `
-<svg width="4" height="4" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="6" height="6" viewBox="0 0 4 4" fill="none" xmlns="http://www.w3.org/2000/svg">
 <circle cx="2" cy="2" r="2" fill="#3989FA"/>
 </svg>
 `;
