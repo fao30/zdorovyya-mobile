@@ -26,11 +26,11 @@ export const navstyle = StyleSheet.create({
     borderTopColor: "#3989FA",
   },
   text: {
-    fontSize: 11,
+    fontSize: 10,
     color: "#9197B3",
   },
   textActive: {
-    fontSize: 11,
+    fontSize: 10,
     color: "#3989FA",
   },
 });
