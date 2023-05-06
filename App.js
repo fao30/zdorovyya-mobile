@@ -7,7 +7,6 @@ import { SmscodeScreen } from "./src/Screens/SmscodeScreen";
 import { Navigation } from "./src/Components/Navigation";
 import { HomeScreen } from "./src/Screens/HomeScreen";
 import { SalesScreen } from "./src/Screens/SalesScreen";
-import { ProfileScreen } from "./src/Screens/ProfileScreen";
 import { OrdersScreen } from "./src/Screens/OrdersScreen";
 import { HealthScreen } from "./src/Screens/HealthScreen";
 import { SpecializationsScreen } from "./src/Screens/SpecializationsScreen";
@@ -15,8 +14,13 @@ import { getHeaderTitle } from "@react-navigation/elements";
 import { ClinicsScreen } from "./src/Screens/ClinicsScreen";
 import { ClinicScreen } from "./src/Screens/ClinicScreen";
 import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
-import { ProfileEditScreen } from "./src/Screens/ProfileEditScreen";
 import AppointmentScreen from "./src/Screens/AppointmentScreen";
+
+// Profile Screens
+import { ProfileScreen } from "./src/Screens/ProfileScreen";
+import { ProfileScreenEdit } from "./src/Screens/ProfileScreenEdit";
+import { ProfileScreenSettings } from "./src/Screens/ProfileScreenSettings";
+import { ProfileScreenFamily } from "./src/Screens/ProfileScreenFamily";
 
 const Stack = createNativeStackNavigator();
 
@@ -43,7 +47,6 @@ const App = () => {
             animationEnabled: false,
           }}
         />
-
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
@@ -52,8 +55,29 @@ const App = () => {
           }}
         />
         <Stack.Screen
+          name="Profile Settings"
+          component={ProfileScreenSettings}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Family"
+          component={ProfileScreenFamily}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
           name="Profile Edit"
-          component={ProfileEditScreen}
+          component={ProfileScreenEdit}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Family Add"
+          component={ProfileScreenEdit}
           options={{
             animationEnabled: false,
           }}

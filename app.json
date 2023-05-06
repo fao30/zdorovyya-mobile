@@ -5,7 +5,7 @@
     "version": "0.1.2",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
@@ -32,6 +32,6 @@
         "projectId": "0ba67855-bf70-4d42-a427-21eb6f4fc856"
       }
     },
-    "owner": "ryanpratama14"
+    "owner": "anasfirly20"
   }
 }
