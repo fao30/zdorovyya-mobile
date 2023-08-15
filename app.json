@@ -5,17 +5,15 @@
     "version": "0.1.2",
     "orientation": "portrait",
     "icon": "./assets/logo.png",
-    "userInterfaceStyle": "light",
+    "userInterfaceStyle": "automatic",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
-    "assetBundlePatterns": [
-      "**/*"
-    ],
+    "assetBundlePatterns": ["**/*"],
     "ios": {
-      "buildNumber":"1.0.0",
+      "buildNumber": "1.0.0",
       "supportsTablet": true
     },
     "android": {
@@ -34,6 +32,6 @@
         "projectId": "0ba67855-bf70-4d42-a427-21eb6f4fc856"
       }
     },
-    "owner": "fao30"
+    "owner": "ryanpratama14"
   }
 }

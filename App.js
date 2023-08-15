@@ -7,7 +7,6 @@ import { SmscodeScreen } from "./src/Screens/SmscodeScreen";
 import { Navigation } from "./src/Components/Navigation";
 import { HomeScreen } from "./src/Screens/HomeScreen";
 import { SalesScreen } from "./src/Screens/SalesScreen";
-import { ProfileScreen } from "./src/Screens/ProfileScreen";
 import { OrdersScreen } from "./src/Screens/OrdersScreen";
 import { HealthScreen } from "./src/Screens/HealthScreen";
 import { SpecializationsScreen } from "./src/Screens/SpecializationsScreen";
@@ -15,6 +14,15 @@ import { getHeaderTitle } from "@react-navigation/elements";
 import { ClinicsScreen } from "./src/Screens/ClinicsScreen";
 import { ClinicScreen } from "./src/Screens/ClinicScreen";
 import { DoctorDetail } from "./src/Components/Clinics/DoctorDetail";
+import AppointmentScreen from "./src/Screens/AppointmentScreen";
+
+// Profile Screens
+import { ProfileScreen } from "./src/Screens/ProfileScreen";
+import { ProfileScreenEdit } from "./src/Screens/ProfileScreenEdit";
+import { ProfileScreenSettings } from "./src/Screens/ProfileScreenSettings";
+import { ProfileScreenFamily } from "./src/Screens/ProfileScreenFamily";
+import FilterScreen from "./src/Screens/FilterScreen";
+import FilterRegionScreen from "./src/Screens/FilterRegionScreen";
 
 const Stack = createNativeStackNavigator();
 
@@ -27,13 +35,13 @@ const App = () => {
           animation: "none",
         }}
       >
-        <Stack.Screen
+        {/* <Stack.Screen
           name="Auth"
           component={AuthScreen}
           options={{
             animationEnabled: false,
           }}
-        />
+        /> */}
         <Stack.Screen
           name="Main"
           component={HomeScreen}
@@ -41,10 +49,37 @@ const App = () => {
             animationEnabled: false,
           }}
         />
-
         <Stack.Screen
           name="Profile"
           component={ProfileScreen}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Settings"
+          component={ProfileScreenSettings}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Family"
+          component={ProfileScreenFamily}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Edit"
+          component={ProfileScreenEdit}
+          options={{
+            animationEnabled: false,
+          }}
+        />
+        <Stack.Screen
+          name="Profile Family Add"
+          component={ProfileScreenEdit}
           options={{
             animationEnabled: false,
           }}
@@ -114,6 +149,33 @@ const App = () => {
             animationEnabled: true,
             headerShown: true,
             title: "Карточка врача",
+          }}
+        />
+        <Stack.Screen
+          name="Appointment"
+          component={AppointmentScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Оформление",
+          }}
+        />
+        <Stack.Screen
+          name="Filter"
+          component={FilterScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Фильтр",
+          }}
+        />
+        <Stack.Screen
+          name="FilterRegion"
+          component={FilterRegionScreen}
+          options={{
+            animationEnabled: true,
+            headerShown: true,
+            title: "Расположение",
           }}
         />
       </Stack.Navigator>

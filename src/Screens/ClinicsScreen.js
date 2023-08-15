@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useMemo } from "react";
 import {
   StyleSheet,
   Button,
@@ -33,80 +33,158 @@ import { ClinicLists } from "../Components/Clinics/ClinicsLists";
 
 import { hideIcon, expandIcon } from "../Icons/HideExpand";
 import { DoctorsLists } from "../Components/Clinics/DoctorsLists";
+import ModalComp from "../Components/Modal";
+import Checkbox from "expo-checkbox";
+import RadioGroup from "react-native-radio-buttons-group";
 
 export const ClinicsScreen = ({ navigation, route }) => {
   const [isClinic, setIsClinic] = useState(true);
+  const [checked, setChecked] = useState();
+
+  const sort = React.useMemo(() => [
+    {
+      id: "1",
+      label: "Сначала дешевле",
+      value: "1",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+        fontWeight: 500,
+      },
+    },
+    {
+      id: "2",
+      label: "Сначала дороже",
+      value: "2",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+        fontWeight: 500,
+      },
+    },
+    {
+      id: "3",
+      label: "Ближайшая запись",
+      value: "Ближайшая запись",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+        fontWeight: 500,
+      },
+    },
+    {
+      id: "4",
+      label: "По популярности (отзывам)",
+      value: "1",
+      color: "#3989FA",
+      labelStyle: {
+        color: "#9197B3",
+        fontWeight: 500,
+      },
+    },
+  ]);
+
   const params = route.params;
-  //NOTES
-  //HARD CODE
-  //ONPRESS GA ADA, NO ACTION
+
+  const [modalVisible, setModalVisible] = React.useState(false);
 
   return (
-    <SafeAreaView style={clinics.container}>
-      <View style={clinics.filters}>
-        <Pressable
-          style={clinics.filterButton}
-          onPress={() => {
-            console.log("EEEEEE", navigation);
-          }}
-        >
-          <View>
-            <SvgXml xml={filterIcon} />
+    <>
+      <ModalComp
+        modalVisible={modalVisible}
+        content={
+          <View style={{ paddingVertical: 20, gap: 12 }}>
+            <Text style={{ fontSize: 18, color: "black", fontWeight: 700 }}>
+              Сортировка
+            </Text>
+            <View style={{ flexDirection: "column", gap: 6 }}>
+              <RadioGroup
+                radioButtons={sort}
+                onPress={setChecked}
+                selectedId={checked}
+                containerStyle={{
+                  flexDirection: "column",
+                  alignItems: "flex-start",
+                }}
+              />
+            </View>
           </View>
-          <Text>Фильтры</Text>
-        </Pressable>
-        <Pressable style={clinics.filterButton}>
-          <View>
-            <SvgXml xml={sortingIcon} />
-          </View>
-          <Text>Сортировка</Text>
-        </Pressable>
-        <Pressable style={clinics.filterButton}>
-          <View>
-            <SvgXml xml={districtIcon} />
-          </View>
-          <Text>Район</Text>
-        </Pressable>
-      </View>
-      <View style={clinics.tabs}>
-        <Pressable
-          onPress={() => {
-            setIsClinic(true);
-          }}
-          style={isClinic ? clinics.tabButtonActive : clinics.tabButton}
-        >
-          <Text style={isClinic ? clinics.tabTextActive : clinics.tabText}>
-            Клиники
-          </Text>
-        </Pressable>
-        <Pressable
-          onPress={() => {
-            setIsClinic(false);
-          }}
-          style={!isClinic ? clinics.tabButtonActive : clinics.tabButton}
-        >
-          <Text style={!isClinic ? clinics.tabTextActive : clinics.tabText}>
-            Врачи
-          </Text>
-        </Pressable>
-      </View>
-      {isClinic ? (
-        <View>
-          <Text style={clinics.searchResult}>Найдено 19 клиник</Text>
-          <ScrollView>
-            <ClinicLists navigation={navigation} />
-          </ScrollView>
+        }
+        onPressCancel={() => setModalVisible(false)}
+      />
+      <SafeAreaView style={clinics.container}>
+        <View style={clinics.filters}>
+          <Pressable
+            style={clinics.filterButton}
+            onPress={() => setModalVisible(true)}
+          >
+            <View>
+              <SvgXml xml={filterIcon} />
+            </View>
+            <Text>Фильтры</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("Filter");
+            }}
+            style={clinics.filterButton}
+          >
+            <View>
+              <SvgXml xml={sortingIcon} />
+            </View>
+            <Text>Сортировка</Text>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              navigation.navigate("FilterRegion");
+            }}
+            style={clinics.filterButton}
+          >
+            <View>
+              <SvgXml xml={districtIcon} />
+            </View>
+            <Text>Район</Text>
+          </Pressable>
         </View>
-      ) : (
-        <View>
-          <Text style={clinics.searchResult}>Найдено 19 врачей</Text>
-          <ScrollView>
-            <DoctorsLists navigation={navigation} />
-          </ScrollView>
+        <View style={clinics.tabs}>
+          <Pressable
+            onPress={() => {
+              setIsClinic(true);
+            }}
+            style={isClinic ? clinics.tabButtonActive : clinics.tabButton}
+          >
+            <Text style={isClinic ? clinics.tabTextActive : clinics.tabText}>
+              Клиники
+            </Text>
+          </Pressable>
+          <Pressable
+            onPress={() => {
+              setIsClinic(false);
+            }}
+            style={!isClinic ? clinics.tabButtonActive : clinics.tabButton}
+          >
+            <Text style={!isClinic ? clinics.tabTextActive : clinics.tabText}>
+              Врачи
+            </Text>
+          </Pressable>
         </View>
-      )}
-
-      <Navigation navigation={navigation} params={params} active="main" />
-    </SafeAreaView>
+        {isClinic ? (
+          <View>
+            <Text style={clinics.searchResult}>Найдено 19 клиник</Text>
+            <ScrollView>
+              <ClinicLists navigation={navigation} />
+            </ScrollView>
+          </View>
+        ) : (
+          <View>
+            <Text style={clinics.searchResult}>Найдено 19 врачей</Text>
+            <ScrollView>
+              <DoctorsLists navigation={navigation} />
+            </ScrollView>
+          </View>
+        )}
+        <Navigation navigation={navigation} params={params} active="main" />
+      </SafeAreaView>
+    </>
   );
 };

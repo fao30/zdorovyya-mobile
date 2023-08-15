@@ -9,6 +9,7 @@ import {
   View,
   Pressable,
   FlatList,
+  SafeAreaView,
 } from "react-native";
 import { SpecializationsList } from "../Components/Specializations/SpecializationsList";
 
@@ -19,7 +20,7 @@ export const SpecializationsScreen = ({ navigation, route }) => {
   const params = route.params;
 
   return (
-    <View style={specializations.container}>
+    <SafeAreaView style={specializations.container}>
       <View style={home.searchBar}>
         <TextInput
           style={home.searchInput}
@@ -28,6 +29,6 @@ export const SpecializationsScreen = ({ navigation, route }) => {
       </View>
       <SpecializationsList navigation={navigation} />
       <Navigation navigation={navigation} params={params} active="main" />
-    </View>
+    </SafeAreaView>
   );
 };
